@@ -8,20 +8,20 @@ function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('products', {
           url: '/products',
-          templateUrl: '/products.html',
+          templateUrl: 'Pages/Products.html',
           controller: 'ProductsController'
       })
       .state('desk', {
           url: '/desk',
-          templateUrl: '/desk.html'
+          templateUrl: 'Pages/Desk.html'
       })
       .state('notFound', {
           url: '/notFound',
-          templateUrl: '/notFound.html'
+          templateUrl: 'Pages/NotFound.html'
       })
       .state('clients', {
           url: '/clients',
-          templateUrl: '/clients.html'
+          templateUrl: 'Pages/Clients.html'
       });
 
     $urlRouterProvider.otherwise('notFound');
