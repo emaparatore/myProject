@@ -12,7 +12,9 @@
 function ($scope, products) {
     $scope.products = products.products;
 
-    var indexUpdate = "";
+    var controller = this;
+    $scope.indexDelete = 0;
+    this.indexDelete = "";
     this.lastAction = '';
     $scope.productName = '';
     $scope.timeDeposit = '';
@@ -30,7 +32,12 @@ function ($scope, products) {
           $('#updateProductInput1').focus()
       })
 
-    //Funzioni per settare il focus al momento dell'inserimento e della modifica
+    //funzione per settare il focul alla richiesta di cancellazione
+    //$("#deleteProduct").on('shown.bs.modal', function () {
+    //    $("#noDeleteButton").focus();
+    //});
+
+    //Funzione per settare il focus al momento dell'inserimento e della modifica
     $scope.focusInsertProduct = function () {
         $('#productInput1').focus();
     }
@@ -59,11 +66,16 @@ function ($scope, products) {
         $('#successInsert').show('slide', 'slow');
     };
 
-    //funzione che produce la cancellazione 
-    $scope.deleteProduct = function (product) {
-        var index = $scope.products.indexOf(product);
-        $scope.products.splice(index, 1);
+    //funzione che prepara la cancellazione 
+    $scope.startDeleteProduct = function (product) {
+        $scope.indexDelete = $scope.products.indexOf(product);
+        $("#deleteProduct").modal('show');
     };
+
+    //funzione che produce la cancellazione
+    $scope.deleteProduct = function () {
+        $scope.products.splice(controller.indexDelete, 1);
+    }
 
     //funzione che prepara il form per la modifica
     $scope.startUpdateProduct = function (product) {

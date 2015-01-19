@@ -27,7 +27,7 @@
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                     </button>
                     <!--Bottone cancella-->
-                    <button ng-click="deleteProduct(product)" class="btn btn-default"
+                    <button ng-click="startDeleteProduct(product)" class="btn btn-default"
                             data-toggle="tooltip" title="Cancella">
                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                     </button>
@@ -50,7 +50,7 @@
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="updateProductLabel">Modifica Prodotto</h4>
+                    <h4 class="modal-title" id="updateProductLabel">Modifica</h4>
                 </div>
                 <div class="modal-body">
                     <form ng-submit=" updateProductForm.$valid && updateProduct()"
@@ -177,5 +177,34 @@
             </div>
         </div>
     </div>
-    <script src="moduleProducts.js"></script>
+
+    <!--Modal Delete-->
+    <div class="modal fade" id="deleteProduct" tabindex="-1" role="dialog" aria-labelledby="deleteProductLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"
+                        id="deleteProductLabel">
+                        Cancella
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning" role="alert">
+                        Vuoi rimuovere il prodotto <b>{{products[indexDelete].name}}</b>?
+                    </div>             
+                </div>
+                <div class="modal-footer">
+                    <button ng-click="deleteProduct()" type="button" class="btn btn-default" data-dismiss="modal">Sì</button>
+                    <button id="noDeleteButton" type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
