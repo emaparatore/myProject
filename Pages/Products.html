@@ -1,4 +1,7 @@
-﻿    <h1>Gestisci i dati dell'azienda</h1>
+﻿
+    
+<div ng-controller="ProductsController">
+    <h1>Gestisci i dati dell'azienda</h1>
     <h2>Prodotti</h2>
     <!-- Button Insert trigger modal -->
     <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#insertProduct" ng-click="beginInsertProduct()">
@@ -41,34 +44,35 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" 
-                            class="close" 
-                            data-dismiss="modal" 
+                    <button type="button"
+                            class="close"
+                            data-dismiss="modal"
                             aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     <h4 class="modal-title" id="updateProductLabel">Modifica Prodotto</h4>
                 </div>
                 <div class="modal-body">
                     <form ng-submit=" updateProductForm.$valid && updateProduct()"
-                          name="updateProductForm" 
+                          name="updateProductForm"
                           novalidate>
-                        <div class="form-group" 
+                        <div class="form-group"
                              ng-class="{'has-success has-feedback': updateProductForm.input1.$valid}">
                             <label for="updateProductInput1">Nome</label>
-                            <input class="form-control" 
+                            <input class="form-control"
                                    name="input1"
-                                   id="updateProductInput1" 
+                                   id="updateProductInput1"
                                    ng-model="productName"
                                    required>
                             <span class="glyphicon glyphicon-ok form-control-feedback"
                                   ng-show="updateProductForm.input1.$valid"></span>
                         </div>
                         <div class="form-group"
-                            ng-class="{'has-success has-feedback': updateProductForm.input2.$valid}">
+                             ng-class="{'has-success has-feedback': updateProductForm.input2.$valid}">
                             <label for="updateProductInput2">Tempo di deposito</label>
                             <input class="form-control"
-                                   name="input2" 
-                                   id="updateProductInput2" 
+                                   name="input2"
+                                   id="updateProductInput2"
                                    ng-model="timeDeposit"
                                    required>
                             <span class="glyphicon glyphicon-ok form-control-feedback"
@@ -85,8 +89,10 @@
                             <span class="glyphicon glyphicon-ok form-control-feedback"
                                   ng-show="updateProductForm.input3.$valid"></span>
                         </div>
-                        <button type="submit" 
-                                class="btn btn-default">Modifica</button>
+                        <button type="submit"
+                                class="btn btn-default">
+                            Modifica
+                        </button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -103,57 +109,63 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" 
-                            class="close" 
-                            data-dismiss="modal" 
-                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" 
-                        id="insertProductLabel">Inserisci un nuovo prodotto</h4>
+                    <button type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"
+                        id="insertProductLabel">
+                        Inserisci un nuovo prodotto
+                    </h4>
                 </div>
                 <div class="modal-body">
-                    <form ng-submit="insertProductForm.$valid && addProduct()" 
+                    <form ng-submit="insertProductForm.$valid && addProduct()"
                           class="formInsert"
-                          name="insertProductForm" 
+                          name="insertProductForm"
                           novalidate>
-                        <div class="form-group" 
+                        <div class="form-group"
                              ng-class="{'has-success has-feedback': insertProductForm.input1.$valid}">
                             <label for="productInput1">Nome</label>
-                            <input class="form-control" 
-                                   name="input1" 
+                            <input class="form-control"
+                                   name="input1"
                                    id="productInput1"
-                                   ng-model="productName" 
+                                   ng-model="productName"
                                    required>
-                            <span class="glyphicon glyphicon-ok form-control-feedback" 
+                            <span class="glyphicon glyphicon-ok form-control-feedback"
                                   ng-show="insertProductForm.input1.$valid"></span>
                         </div>
-                        <div class="form-group" 
+                        <div class="form-group"
                              ng-class="{'has-success has-feedback': insertProductForm.input2.$valid}">
                             <label for="productInput2">Tempo di deposito</label>
-                            <input type="number" 
-                                   class="form-control" 
-                                   name="input2" 
+                            <input type="number"
+                                   class="form-control"
+                                   name="input2"
                                    id="productInput2"
-                                   ng-model="timeDeposit" 
+                                   ng-model="timeDeposit"
                                    required>
-                            <span class="glyphicon glyphicon-ok form-control-feedback" 
+                            <span class="glyphicon glyphicon-ok form-control-feedback"
                                   ng-show="insertProductForm.input2.$valid"></span>
 
                         </div>
-                        <div class="form-group" 
+                        <div class="form-group"
                              ng-class="{'has-success has-feedback': insertProductForm.input3.$valid}">
                             <label for="productInput3">Produzione massima giornaliera</label>
-                            <input type="number" 
-                                   class="form-control" 
-                                   name="input3" 
+                            <input type="number"
+                                   class="form-control"
+                                   name="input3"
                                    id="productInput3"
-                                   ng-model="maxDailyProduction" 
+                                   ng-model="maxDailyProduction"
                                    required>
-                            <span class="glyphicon glyphicon-ok form-control-feedback" 
+                            <span class="glyphicon glyphicon-ok form-control-feedback"
                                   ng-show="insertProductForm.input3.$valid"></span>
                         </div>
-                        <button ng-click="focusInsertProduct()" 
-                                type="submit" 
-                                class="btn btn-default">Crea</button>
+                        <button ng-click="focusInsertProduct()"
+                                type="submit"
+                                class="btn btn-default">
+                            Crea
+                        </button>
                     </form>
                     <!-- <div id="successInsert" class="alert alert-success" role="alert" >
                          Record Inserito Corretamente
@@ -165,3 +177,5 @@
             </div>
         </div>
     </div>
+    <script src="moduleProducts.js"></script>
+</div>
