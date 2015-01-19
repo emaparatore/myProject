@@ -56,6 +56,7 @@
                     <form ng-submit=" updateProductForm.$valid && updateProduct()"
                           name="updateProductForm"
                           novalidate>
+                        <!--Input nome-->
                         <div class="form-group"
                              ng-class="{'has-success has-feedback': updateProductForm.input1.$valid}">
                             <label for="updateProductInput1">Nome</label>
@@ -67,6 +68,7 @@
                             <span class="glyphicon glyphicon-ok form-control-feedback"
                                   ng-show="updateProductForm.input1.$valid"></span>
                         </div>
+                        <!--Input tempo di deposito-->
                         <div class="form-group"
                              ng-class="{'has-success has-feedback': updateProductForm.input2.$valid}">
                             <label for="updateProductInput2">Tempo di deposito</label>
@@ -74,10 +76,12 @@
                                    name="input2"
                                    id="updateProductInput2"
                                    ng-model="timeDeposit"
+                                   type="number"
                                    required>
                             <span class="glyphicon glyphicon-ok form-control-feedback"
                                   ng-show="updateProductForm.input2.$valid"></span>
                         </div>
+                        <!--Input produzione massima giornaliera-->
                         <div class="form-group"
                              ng-class="{'has-success has-feedback': updateProductForm.input3.$valid}">
                             <label for="updateProductInput3">Produzione massima giornaliera</label>
@@ -85,6 +89,7 @@
                                    name="input3"
                                    id="updateProductInput3"
                                    ng-model="maxDailyProduction"
+                                   type="number"
                                    required>
                             <span class="glyphicon glyphicon-ok form-control-feedback"
                                   ng-show="updateProductForm.input3.$valid"></span>
@@ -125,6 +130,7 @@
                           class="formInsert"
                           name="insertProductForm"
                           novalidate>
+                        <!--Input nome-->
                         <div class="form-group"
                              ng-class="{'has-success has-feedback': insertProductForm.input1.$valid}">
                             <label for="productInput1">Nome</label>
@@ -136,6 +142,7 @@
                             <span class="glyphicon glyphicon-ok form-control-feedback"
                                   ng-show="insertProductForm.input1.$valid"></span>
                         </div>
+                        <!--Input tempo di deposito-->
                         <div class="form-group"
                              ng-class="{'has-success has-feedback': insertProductForm.input2.$valid}">
                             <label for="productInput2">Tempo di deposito</label>
@@ -149,6 +156,7 @@
                                   ng-show="insertProductForm.input2.$valid"></span>
 
                         </div>
+                        <!--Input produzione massima giornaliera-->
                         <div class="form-group"
                              ng-class="{'has-success has-feedback': insertProductForm.input3.$valid}">
                             <label for="productInput3">Produzione massima giornaliera</label>

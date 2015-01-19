@@ -11,11 +11,11 @@
 'products',
 function ($scope, products) {
     $scope.products = products.products;
-
-    var controller = this;
     $scope.indexDelete = 0;
     this.indexDelete = "";
     this.lastAction = '';
+
+    //inizializazione dei campi del form
     $scope.productName = '';
     $scope.timeDeposit = '';
     $scope.maxDailyProduction = '';
@@ -74,7 +74,7 @@ function ($scope, products) {
 
     //funzione che produce la cancellazione
     $scope.deleteProduct = function () {
-        $scope.products.splice(controller.indexDelete, 1);
+        $scope.products.splice($scope.indexDelete, 1);
     }
 
     //funzione che prepara il form per la modifica
@@ -90,10 +90,6 @@ function ($scope, products) {
 
     //funzione che produce la modifica
     $scope.updateProduct = function () {
-        if (!$scope.maxDailyProduction || $scope.maxDailyProduction === ''
-            || !$scope.productName || $scope.productName === ''
-            || !$scope.timeDeposit || $scope.timeDeposit === '')
-        { return; }
         $scope.products[indexUpdate].name = $scope.productName;
         $scope.products[indexUpdate].timeDeposit = $scope.timeDeposit;
         $scope.products[indexUpdate].maxDailyProduction = $scope.maxDailyProduction;
